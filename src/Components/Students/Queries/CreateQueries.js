@@ -11,10 +11,16 @@ export default function CreateQueries({queries,setQueries}) {
     const [availabletimeslots,setAvailabletimeslots] = useState("")
     const [error,setError] = useState("")
     const navigate= useNavigate()
-    const addQuery = async()=>{
+    const addQuery = async(event)=>{
+        event.preventDefault();
         let token = localStorage.getItem("token")
-        const newQuery = {
-            topic,preferedLanguage,queryTitle,queryDescription,availabletimeslots}
+            const newQuery = {
+                Topic: topic,
+                PreferedLanguage: preferedLanguage,
+                QueryTitle: queryTitle,
+                Querydescription: queryDescription,
+                AvailableTimeslots: availabletimeslots,
+              }
         const response = await fetch(`http://localhost:9090/query/createquery`,{
             method:"POST",
             body:JSON.stringify(newQuery),

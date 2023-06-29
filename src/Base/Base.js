@@ -44,7 +44,7 @@ function handleLogut(){
     edge="end" 
     color="inherit" 
     aria-label="add students" 
-    onClick={()=>navigate("/signup")}
+    onClick={()=>navigate("/webcode")}
     sx={{ mr: 2 }}>  
     Webcode
     </IconButton>
@@ -53,7 +53,7 @@ function handleLogut(){
     edge="end" 
     color="inherit" 
     aria-label="add students" 
-    onClick={handleLogut}
+    onClick={()=>navigate("/myleaves")}
     sx={{ mr: 2 }}>  
     Leave application
     </IconButton>
