@@ -14,7 +14,7 @@ export default function Tasks({tasks,setTasks}) {
         }
         let token =localStorage.getItem("token")
         const fetchAlltasks = async()=>{
-          const response = await fetch(`http://localhost:9090/task/viewtasks`,{
+          const response = await fetch(`https://capstone-backend-m4t7-praveenive.vercel.app/task/viewtasks`,{
             method:"GET",
             headers:{
                 "x-auth-token":token
