@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+#home{
+  background-color: rgb(237, 255, 33);
+}
 
 .login{
   display: flex;
@@ -27,4 +30,6 @@ Button{
 .card{
   margin-bottom: 10px;
 }
-
+.form{
+  padding: 20px;
+}

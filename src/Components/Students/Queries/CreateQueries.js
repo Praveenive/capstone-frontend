@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material'
+import { Button, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Base from '../../../Base/Base'
@@ -52,7 +52,7 @@ export default function CreateQueries({queries,setQueries}) {
    <TextField  id="AvailableTimeslots" label="AvailableTimeslots" value={availabletimeslots}
    type="text" onChange={(e)=>setAvailabletimeslots(e.target.value)}  variant="outlined" fullWidth sx={{ m: 1 }}   />
    <div style={{marginTop:"50px"}}><Button variant="contained"  type="submit" onClick={addQuery}>Create Query</Button></div>
- 
+ {error?<Typography>{error}</Typography>:" "}
    </form>
    </Base>
   )

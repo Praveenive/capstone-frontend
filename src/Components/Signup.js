@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material'
+import { Button, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,11 +7,13 @@ export default function Signup() {
   const [lastname,setLastname ] = useState("")
   const [email,setEmail ] = useState("")
   const [password,setPassword] = useState("")
+  const [error,setError] = useState("")
+  const navigate = useNavigate()
   async function handleSignup(){
     const newStudent = {
       firstname,lastname,email,password
     }
-    const response = await fetch(`http://localhost:9090/user/signup`,{
+    const response = await fetch(`https://capstone-backend-m4t7-praveenive.vercel.app/user/signup`,{
       method:"POST",
       body:JSON.stringify(newStudent),
       headers:{
@@ -20,9 +22,13 @@ export default function Signup() {
 
     });
       const data = await response.json();
-      console.log(data)
-  }
-  const navigate = useNavigate()
+      if(!data.data){
+        setError(data.message)
+      }
+      else{
+      navigate("/login")
+  }}
+
   return (
     <div className='loginpage'>
     <h4>Zen Classes</h4> 
@@ -35,6 +41,7 @@ export default function Signup() {
     <Button variant="contained" onClick={handleSignup}>Signup</Button>
     <p>Already have an account?</p>
     <Button variant="text"  onClick={()=>navigate("/login")}>Login</Button>
+    {error?<Typography variant="body1" color="error">{error}</Typography>:" "}
     </div>
   )
 }

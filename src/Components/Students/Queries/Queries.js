@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Base from '../../../Base/Base'
 
 export default function Queries({queries,setQueries}) {
+    const [tokenid,setTokenid] = useState("")
     const [error,setError] = useState("")
     const navigate = useNavigate()
     useEffect(()=>{
@@ -12,8 +13,9 @@ export default function Queries({queries,setQueries}) {
             navigate("/login",{replace:true})
         }
         let token = localStorage.getItem("token")
+        setTokenid(token)
         const getAllQueries = async()=>{
-            const response = await fetch(`http://localhost:9090/query/allqueries`,{
+            const response = await fetch(`http://localhost:9090/query/myquery`,{
                 method:"GET",
                 headers:{
                     "x-auth-token":token
@@ -26,6 +28,7 @@ export default function Queries({queries,setQueries}) {
             }
             setError(" ")
             setQueries(data.data)
+            console.log(queries)
 
         }
         getAllQueries()
@@ -43,7 +46,8 @@ export default function Queries({queries,setQueries}) {
                 <p>Query Title:{data.QueryTitle}</p>
                 <p>Querydescription:{data.Querydescription}</p>
                 <p>AvailableTimeslots:{data.AvailableTimeslots}</p>
-                <Button variant='contained'>Query Status</Button>
+                <h4>Query Status:{data.Querystatus}</h4>
+                <Button variant='contained' onClick={()=>navigate(`/updatequery/${data._id}/${tokenid}`)}>Query Status</Button>
             </Card>
         ))}
 {error? <Typography>{error}</Typography>:" "}

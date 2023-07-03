@@ -1,9 +1,9 @@
 import { Button, Paper, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Base from '../../../Base/Base'
+import AdminBase from '../../../Base/AdminBase'
 
-export default function Tasks({tasks,setTasks}) {
+export default function TaskGen({tasks,setTasks}) {
     const navigate =useNavigate()
     const [error,setError] = useState("")
    
@@ -14,7 +14,7 @@ export default function Tasks({tasks,setTasks}) {
         }
         let token =localStorage.getItem("token")
         const fetchAlltasks = async()=>{
-          const response = await fetch(`http://localhost:9090/task/viewtasks`,{
+          const response = await fetch(`https://capstone-backend-m4t7-praveenive.vercel.app/task/viewtasks`,{
             method:"GET",
             headers:{
                 "x-auth-token":token
@@ -30,8 +30,11 @@ export default function Tasks({tasks,setTasks}) {
         fetchAlltasks()
     },[])
   return (
-    <Base>
-       <h1>Tasks</h1>
+    <AdminBase>
+       <h1>Task Details</h1>
+       <div className='ref'>
+        <Button variant='contained' 
+        onClick={()=>navigate("/createtask")}>Create Task</Button></div><br/>
 {tasks&&(
     <div>
         {tasks?.map((data,idx)=>(
@@ -44,6 +47,6 @@ export default function Tasks({tasks,setTasks}) {
         {error?<Typography>{error}</Typography>:" "}
     </div>
 )}
-    </Base>
+    </AdminBase>
   )
 }

@@ -2,7 +2,7 @@ import { AppBar, IconButton, Toolbar, Typography } from '@mui/material'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function Base({title, description, children}) {
+export default function AdminBase({title, description, children}) {
 const navigate = useNavigate()
 function handleLogut(){
     localStorage.removeItem("token")
@@ -18,15 +18,29 @@ function handleLogut(){
     <IconButton 
     edge="end"
      color="inherit"
-     onClick={()=>navigate("/stu-onlinecourse")}
+     onClick={()=>navigate("/admin-dashboard")}
       aria-label="dashboard" sx={{ mr: 2 }}>  
-  Online Courses
+    Admin Dashboard
+    </IconButton>
+    <IconButton 
+    edge="end"
+     color="inherit"
+     onClick={()=>navigate("/admincourses")}
+      aria-label="dashboard" sx={{ mr: 2 }}>  
+   Online Courses
+    </IconButton>
+    <IconButton 
+    edge="end"
+     color="inherit"
+     onClick={()=>navigate("/studentlist")}
+      aria-label="dashboard" sx={{ mr: 2 }}>  
+   Students
     </IconButton>
     <IconButton 
     edge="end" 
     color="inherit"
      aria-label="students"
-     onClick={()=>navigate("/stu-queries")}
+     onClick={()=>navigate("/allqueries")}
       sx={{ mr: 2 }}>  
       Queries
     </IconButton>
@@ -35,7 +49,7 @@ function handleLogut(){
     edge="end" 
     color="inherit" 
     aria-label="add students" 
-    onClick={()=>navigate("/tasks")}
+    onClick={()=>navigate("/taskgen")}
     sx={{ mr: 2 }}>  
     Tasks
     </IconButton>
@@ -43,7 +57,7 @@ function handleLogut(){
     edge="end" 
     color="inherit" 
     aria-label="add students" 
-    onClick={()=>navigate("/myleaves")}
+    onClick={()=>navigate("/leaveapproval")}
     sx={{ mr: 2 }}>  
     Leave application
     </IconButton>
@@ -71,4 +85,3 @@ function handleLogut(){
   )
 }
 
-export default Base
