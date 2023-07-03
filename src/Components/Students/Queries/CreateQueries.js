@@ -21,7 +21,7 @@ export default function CreateQueries({queries,setQueries}) {
                 Querydescription: queryDescription,
                 AvailableTimeslots: availabletimeslots,
               }
-        const response = await fetch(`http://localhost:9090/query/createquery`,{
+        const response = await fetch(`https://capstone-backend-m4t7-praveenive.vercel.app/query/createquery`,{
             method:"POST",
             body:JSON.stringify(newQuery),
             headers:{

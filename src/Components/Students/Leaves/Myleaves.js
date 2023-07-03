@@ -14,7 +14,7 @@ export default function Myleaves({leaves,setLeaves}) {
 let token = localStorage.getItem("token")
 setTokenId(token)
     const getMyLeaves = async()=>{
-      const res = await fetch(`http://localhost:9090/leave/myleaves`,{
+      const res = await fetch(`https://capstone-backend-m4t7-praveenive.vercel.app/leave/myleaves`,{
         method:"GET",
         headers:{
           "x-auth-token":token

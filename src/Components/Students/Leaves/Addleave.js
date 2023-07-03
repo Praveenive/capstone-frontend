@@ -21,7 +21,7 @@ export default function Addleave({leaves,setLeaves}) {
             To:to,
             Reason:reason
         }
-        const response = await fetch(`http://localhost:9090/leave/add`,{
+        const response = await fetch(`https://capstone-backend-m4t7-praveenive.vercel.app/leave/add`,{
             method:"POST",
             body:JSON.stringify(newleave),
             headers:{

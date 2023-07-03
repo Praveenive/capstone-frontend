@@ -15,7 +15,7 @@ export default function Queries({queries,setQueries}) {
         let token = localStorage.getItem("token")
         setTokenid(token)
         const getAllQueries = async()=>{
-            const response = await fetch(`http://localhost:9090/query/myquery`,{
+            const response = await fetch(`https://capstone-backend-m4t7-praveenive.vercel.app/query/myquery`,{
                 method:"GET",
                 headers:{
                     "x-auth-token":token

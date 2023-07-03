@@ -11,7 +11,7 @@ export default function UpdateQuery() {
    const {id,token} = useParams()
    const updatestatus =async()=>{
     const updated = {Querystatus}
-    const response =await fetch(`http://localhost:9090/query/editquery/${id}`,{
+    const response =await fetch(`https://capstone-backend-m4t7-praveenive.vercel.app/query/editquery/${id}`,{
         method:"PUT",
         body:JSON.stringify(updated),
         headers:{
