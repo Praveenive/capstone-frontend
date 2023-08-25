@@ -37,7 +37,7 @@ export default function Signup() {
     <TextField id="firstname" label="Enter your First name" variant="filled" value={firstname} onChange={(e)=>setFirstname(e.target.value)}/><br/><br/>
     <TextField id="lastname" label="Enter your Last name" variant="filled"value={lastname} onChange={(e)=>setLastname(e.target.value)} /><br/><br/>
     <TextField id="email" label="Enter your email" variant="filled" value={email} onChange={(e)=>setEmail(e.target.value)}/><br/><br/>
-    <TextField id="password" label="Enter Password" variant="filled" value={password} onChange={(e)=>setPassword(e.target.value)}/>  <br/><br/>
+    <TextField id="password" type="password" label="Enter Password" variant="filled" value={password} onChange={(e)=>setPassword(e.target.value)}/>  <br/><br/>
     <Button variant="contained" onClick={handleSignup}>Signup</Button>
     <p>Already have an account?</p>
     <Button variant="text"  onClick={()=>navigate("/login")}>Login</Button>
